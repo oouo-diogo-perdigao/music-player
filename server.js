@@ -1,9 +1,10 @@
-import server from "./app";
-import fs from "fs";
+import server from './app';
+import fs from 'fs';
 
 const port = process.env.PORT || 8080;
-const packageJson = JSON.parse(fs.readFileSync("./package.json"));
+const packageJson = JSON.parse(fs.readFileSync('./package.json'));
 const version = packageJson.version;
+process.env.VERSION = version;
 
 //Inicia o servidor escutando na porta 8080
 server.listen(port, () => {

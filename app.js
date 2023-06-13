@@ -8,8 +8,6 @@ import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import routers from './routes';
-
 /**
  * Classe principal da aplicação
  */
@@ -72,12 +70,31 @@ class App {
 			swaggerUi.serve,
 			swaggerUi.setup(yaml.parse(fs.readFileSync('./routes/swagger.yaml', 'utf8')))
 		);
-		routers(this.app);
+
+		this.app.use('/musica/{id}', function (req, res, next) {
+			const filePath = path.join(__dirname, '../musicas/exemplo.mp3');
+			res.sendFile(filePath);
+		});
+
+		this.app.get('/list', function (req, res, next) {
+			const musicFolder = path.join(__dirname, './routes/public/musicas'); // pasta
+			const files = fs.readdirSync(musicFolder);
+			const musicFiles = files.filter((file) => file.endsWith('.mp3')); // filtra arquivos com extensão mp3
+			const port = process.env.PORT || 8080;
+
+			musicFiles.forEach((file, index) => {
+				//converte nome com espaço para url
+				file = file.replace(/ /g, '%20');
+				musicFiles[index] = `http://localhost:${port}/musicas/${file}`; // adiciona o caminho da pasta public
+			});
+
+			res.json({ files: musicFiles });
+		});
 		//#endregion
 
 		//Ordem especifica, 3º pasta publica
 		const __dirname = path.dirname(fileURLToPath(import.meta.url));
-		this.app.use(express.static(path.resolve(__dirname, '/routes/public'))); //Rota para a pasta public para css
+		this.app.use(express.static(path.join(__dirname, 'routes', 'public'))); //Rota para a pasta public para midias
 
 		//Ordem especifica, 4º error handler 404
 		this.app.use((err, req, res, next) => {

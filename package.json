@@ -4,7 +4,12 @@
 	"description": "Music Player",
 	"type": "module",
   "license": "Apache-2",
-	"author": "Diogo Passos Perdigão Britto <diogopbritto@gmail.com>, Juliano Cezar Caetano",
+	"author": {
+		"name": "Diogo Perdigão",
+		"email": "diogopbritto@gmail.com",
+		"url": "https://www.linkedin.com/in/oouo-diogo-perdigao/"
+	},
+	"contributors":[ "Juliano Cezar Caetano" ],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/oouo-diogo-perdigao/music-player.git"

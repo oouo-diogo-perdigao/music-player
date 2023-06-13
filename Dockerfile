@@ -1,6 +1,3 @@
-# Veja para boas praticas:
-# https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/
-
 FROM node:16-alpine
 
 ENV NODE_ENV production
