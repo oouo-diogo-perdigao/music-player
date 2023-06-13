@@ -95,6 +95,7 @@ class App {
 		//Ordem especifica, 3º pasta publica
 		const __dirname = path.dirname(fileURLToPath(import.meta.url));
 		this.app.use(express.static(path.join(__dirname, 'routes', 'public'))); //Rota para a pasta public para midias
+		this.app.use(express.static(path.join(__dirname, 'frontend', 'build'))); //Rota para a pasta public para midias
 
 		//Ordem especifica, 4º error handler 404
 		this.app.use((err, req, res, next) => {
