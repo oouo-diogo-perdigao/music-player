@@ -1,17 +1,13 @@
 {
   "name": "music-player",
   "version": "1.0.0",
-  "main": "server.js",
-  "author": "Diogo Passos Perdigão Britto <diogopbritto@gmail.com>",
+	"description": "Music Player",
+	"type": "module",
   "license": "Apache-2",
+	"author": "Diogo Passos Perdigão Britto <diogopbritto@gmail.com>, Juliano Cezar Caetano",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/oouo-diogo-perdigao/music-player.git"
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-env"
-		]
 	},
 	"prettier": {
 		"printWidth": 120,
@@ -27,6 +23,12 @@
 		"node": ">=16.14.1",
 		"npm": ">=8.5.0",
 		"yarn": ">=1.22.15"
+	},
+	"main": "server.js",
+	"babel": {
+		"presets": [
+			"@babel/preset-env"
+		]
 	},
   "scripts": {
     "start": "nodemon --inspect --exec babel-node --experimental-specifier-resolution=node ./server"
