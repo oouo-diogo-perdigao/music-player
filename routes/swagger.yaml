@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  version: 1.0.2
+  title: Travel RPG API
+  description: Descrição
+  termsOfService: Termos de Serviço
+  contact:
+    email: oouomaster@travelrpg.com
+  license:
+    name: Licença Proprietária
+    url: https://be-dev.travelrpg.com/license
+servers:
+  - url: http://localhost:8080/
+    description: Localhost
+paths:
+  /list:
+    get:
+      summary: pega os arquivois de audio
+      responses:
+        '200':
+          description: Success
+  /musicas/{id}:
+    get:
+      summary: pega a musica
+      responses:
+        '200':
+          description: Success
+
+  /license:
+    get:
+      summary: Get license
+      responses:
+        '200':
+          description: Success
+  
+  /version:
+    get:
+      summary: draw version from package.json
+      responses:
+        '200':
+          description: Success
