@@ -1,38 +1,139 @@
+body {
+  background-color: #e5e5e5;
+}
+
 .App {
+  font-family: sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.component {
+  background-color: white;
+  width: 55%;
+  max-width: 600px;
+  padding-bottom: 2em;
+  border: 0.1px solid black;
+  border-radius: 10px;
+	margin: 20px 20px -16px 19px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.musicCover {
+	margin-top: 10px;
+  border-radius: 10%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.playButton {
+  background: none;
+  border: none;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.subTitle {
+  margin-top: -1em;
+  color: #4f4f4f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.time {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  color: #828282;
+  font-size: smaller;
+}
+
+.timeline {
+  width: 80%;
+  background-color: #27ae60;
+}
+
+input[type="range"] {
+  background-color: #27ae60;
+}
+
+@media (max-width: 900px) {
+  .component {
+    width: 50%;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+
+
+
+
+
+
+.music-player-container {
+	background-color: white;
+  margin: 2em;
+  padding-bottom: 2em;
+  border: 0.1px solid black;
+  border-radius: 10px;
+	width: 600px;
+	height: 400px;
+
+  display: flex;
+}
+
+.music-player {
+  /* Estilo para o player de música */
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.music-list {
+  /* Estilo para a lista de músicas */
+  margin-left: 20px;
+	width: 45%;
+	text-align: left;
+	overflow-y: scroll;
+}
+
+/* Estilizando a barra de rolagem */
+.music-list::-webkit-scrollbar {
+  width: 10px; /* Largura da barra de rolagem */
+}
+
+.music-list::-webkit-scrollbar-track {
+  background-color: #f2f2f2; /* Cor de fundo da barra de rolagem */
+  border-radius: 5px; /* Bordas arredondadas da barra de rolagem */
+}
+
+.music-list::-webkit-scrollbar-thumb {
+  background-color: #888; /* Cor do indicador da barra de rolagem */
+  border-radius: 5px; /* Bordas arredondadas do indicador da barra de rolagem */
+}
+
+.music-list::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Cor do indicador da barra de rolagem ao passar o mouse */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.music-button {
+  /* Estilo para os botões de música */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: left;
+  width: 230px;
+}
+
+.music-button.selected {
+  /* Estilo para o botão de música selecionado */
+  background-color: #0056b3;
 }

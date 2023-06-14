@@ -1,16 +1,13 @@
 import './App.css';
 
-import MusicPlayer from "./MusicPlayer";
-
+import MusicList from './MusicList';
 
 function App() {
-  return (
-    <>
-      <MusicPlayer />
-  </>
-
-
-  );
+	return (
+		<div className='App'>
+			<MusicList />
+		</div>
+	);
 }
 
 export default App;

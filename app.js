@@ -31,6 +31,8 @@ class App {
 		this.app.use(express.urlencoded({ extended: false })); //reconhece o objeto de solicitação recebido como cadeias ou matrizes
 		let allowedOrigins = [
 			'localhost:8080', // sem o http para f5 desenvolvimento local
+			'http://localhost:3000',
+			'localhost:3000',
 		];
 		// Permitir varias origens no navegador, usado mais para desenvolvimento, embora acredito que sera usado para produção
 		this.app.use((req, res, next) => {
@@ -82,13 +84,13 @@ class App {
 			const musicFiles = files.filter((file) => file.endsWith('.mp3')); // filtra arquivos com extensão mp3
 			const port = process.env.PORT || 8080;
 
-			musicFiles.forEach((file, index) => {
-				//converte nome com espaço para url
-				file = file.replace(/ /g, '%20');
-				musicFiles[index] = `http://localhost:${port}/musicas/${file}`; // adiciona o caminho da pasta public
+			const musicList = musicFiles.map((file) => {
+				const musicName = file.replace(/\.mp3$/, ''); // remove a extensão .mp3 do nome do arquivo
+				const musicUrl = `http://localhost:${port}/musicas/${encodeURIComponent(file)}`; // adiciona o caminho da pasta public e codifica o nome do arquivo na URL
+				return { name: musicName, url: musicUrl };
 			});
 
-			res.json({ files: musicFiles });
+			res.json(musicList);
 		});
 		//#endregion
 
