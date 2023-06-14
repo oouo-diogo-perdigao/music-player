@@ -2,8 +2,8 @@ openapi: 3.0.3
 info:
   version: 1.0.0
   title: Music Player
-  description: Descrição
-  termsOfService: Termos de Serviço
+  description: Player simples de audio
+  termsOfService: Apache-2
 servers:
   - url: http://localhost:8080/
     description: Localhost
@@ -14,13 +14,32 @@ paths:
       responses:
         '200':
           description: Success
-  /musicas/{id}:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  files:
+                    type: array
+                    items:
+                      type: string
+                      format: uri
+                      example: http://localhost:8080/musicas/Negro%20Amor.mp3
+
+  /musicas/{name}:
     get:
-      summary: Envia a musica selecionada
+      summary: Retorna a música com o NAME fornecido
+      parameters:
+        - name: name
+          in: path
+          description: NAME da música
+          required: true
+          schema:
+            type: string
       responses:
         '200':
-          description: Success
-  
+          description: Sucesso
+
   /version:
     get:
       summary: Mostra versão do projeto do package.json
